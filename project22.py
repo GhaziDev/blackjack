@@ -171,12 +171,3 @@ main()
 
 
 
-
-
-
-
-###############################
-#think yourself as a end-user so that you explain the code for yourself then make a more clear output :)
-#python cares about order in code(and this is very important)
-
-
