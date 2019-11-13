@@ -7,10 +7,10 @@ values = {'Two':2, 'Three':3, 'Four':4, 'Five':5, 'Six':6, 'Seven':7, 'Eight':8,
 playing=True
 class Card:
     def __init__(self,suits,ranks):
-        self.suits=suits
-        self.ranks=ranks
+        self.suit = suit
+        self.rank = rank
     def __str__(self):
-        return self.ranks+"of"+self.suits
+        return self.rank + "of" + self.suit
 
 class Deck:
     def __init__(self):
@@ -58,6 +58,7 @@ def take_bet(bet,total):
     while(bet>total or bet==0 or bet<0):
         bet = int(input("choose your bet: "))
     return bet
+
 def hit(a, b):
      Card = a.deal()[0][0]
      Card = [Card]
