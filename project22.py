@@ -144,7 +144,7 @@ def main():
         while playing:
             hit_or_stand(a, b)
             show_some(b.cards, dealer)
-            if(player_busts(b,c)==True):
+            if player_busts(b,c):
                 print(" player bust ")
                 break
         playing=True
@@ -152,15 +152,15 @@ def main():
         d.add_cards(dealer)
         while d.value<17:
              hit(a, d)
-             if(dealer_busts(d,b,c)==True):
+             if dealer_busts(d,b,c):
                 print("dealer bust")
                 break
 
         show_all(b.cards,d.cards)
         push(b,d) #when equals
-        if(player_wins(b,d,c)==True):
+        if player_wins(b,d,c):
             print("player win")
-        elif (dealer_wins(b, d, c) == True):
+        elif dealer_wins(b, d, c):
             print("dealer win")
         print('\n -- Remaining : ', c.total)
         if(not(play_again())):
