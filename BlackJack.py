@@ -139,7 +139,7 @@ def main():
         else:
             print("Thanks for playing")
             break
-main()
+main() #calling main function
 
 
 
