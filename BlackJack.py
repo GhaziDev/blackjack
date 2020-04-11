@@ -31,8 +31,6 @@ values = {
     "King": 10,
     "Ace": 11,
 }
-playing = True
-
 
 class Card:
     def __init__(self, suit, rank):
@@ -188,7 +186,6 @@ def main():
                 lose = lose + 1
                 print(f"Wins  =  {win},Loses =  {lose}, Tie  =  {tie}")
                 break
-        playing = True
         if player_hand.value <= 21:
             while dealer_hand.value < 17:
                 hit(D, dealer_hand)
