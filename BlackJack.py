@@ -93,6 +93,8 @@ class Chips:
 
 def take_bet(C):
     C.bet = int(input("enter your bet please : "))
+    if C.total == 0 and C.bet > C.total:
+        raise Exception("You got 0 money left, you lost")
     while C.bet > C.total or C.bet < 0 or not (isinstance(C.bet, int)):
         C.bet = int(input("enter your bet please : "))
 
@@ -103,15 +105,14 @@ def hit(D, hand):
 
 
 def hit_or_stand(D, hand):
-    global playing
     while True:
         hit_stand = input("do you want to hit or stand ?  ").lower()
         if hit_stand == "hit" or hit_stand == "h":
             hit(D, hand)
         else:
             print("PLAYER stand, DEALER is playing")
-            playing = False
-        break
+            return False
+        return True
 
 
 def show_some(player_hand, dealer_hand):
@@ -162,8 +163,12 @@ def main():
     lose = 0
     tie = 0
     print("******WELCOME TO BLACKJACK GAME!******")
+    print(
+        "INSTRUCTION: 1)Bet should be lower than your total money or equal to it (300 is the current)"
+    )
+    print("2)Answer with y/n OR yes/no when you want to play another hand")
+    print("3)answer with  H/S OR hit/stand  to hit or stand")
     C = Chips()
-    global playing
     while True:
         D = Deck()
         D.shuffle()
@@ -175,8 +180,7 @@ def main():
         dealer_hand.add_cards(D.deal())
         take_bet(C)
         show_some(player_hand, dealer_hand)
-        while playing:
-            hit_or_stand(D, player_hand)
+        while hit_or_stand(D, player_hand):
             show_some(player_hand, dealer_hand)
             if player_hand.value > 21:
                 show_all(player_hand, dealer_hand)
