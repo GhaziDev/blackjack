@@ -5,7 +5,5 @@
 
 3.code is easy to understand,the only library i used is (random)
 
-4.The code is perfectly reforamtted.
-
-5.No global variables
+4.No global variables
 
