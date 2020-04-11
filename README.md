@@ -7,3 +7,5 @@
 
 4.The code is perfectly reforamtted.
 
+5.No global variables
+
